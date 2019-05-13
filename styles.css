@@ -1,0 +1,75 @@
+* {
+  box-sizing: border-box; }
+
+body {
+  background-color: #F2E6D8;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; }
+
+.welcome-section {
+  position: relative; }
+
+.welcome-header {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around; }
+
+.welcome-heading {
+  margin: 30px 10px 0;
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 1.1; }
+
+.welcome-text {
+  width: 75%;
+  margin: 10px;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.4; }
+
+.welcome-nav {
+  position: relative;
+  width: 85%;
+  text-align: right; }
+
+.welcome-nav-item {
+  margin: 25px 0;
+  font-size: 24px;
+  text-transform: uppercase;
+  font-variant: small-caps; }
+
+.welcome-nav-arrow {
+  position: absolute;
+  top: 10px;
+  right: -10vw;
+  height: 200px; }
+
+.code-image-container {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  width: 72px;
+  height: 72px;
+  background-color: #313A40;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.code-image {
+  width: 64px;
+  height: 64px;
+  background-image: url("images/code.svg"); }
+
+.welcome-external-nav-list {
+  height: 150px;
+  position: absolute;
+  bottom: 50px;
+  left: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center; }
+
+.welcome-external-nav-link {
+  width: 64px;
+  height: 64px; }
