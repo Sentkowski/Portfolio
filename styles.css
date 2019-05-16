@@ -5,6 +5,10 @@ body {
   background-color: #F2E6D8;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; }
 
+main {
+  width: 100vw;
+  overflow: hidden; }
+
 .welcome-section {
   position: relative; }
 
@@ -230,16 +234,18 @@ body {
 .project-name-container {
   align-self: flex-end;
   display: inline-block;
-  padding: 10px 120px 10px 10px;
+  padding: 10px 80px 10px 10px;
   background-color: #313A40;
-  transform: translateX(110px);
+  transform: translateX(60px);
   transition: transform 0.2s; }
   @media screen and (min-width: 650px) {
-    .project-name-container.left {
-      align-self: flex-start;
-      padding: 10px 10px 10px 150px; }
-    .project-name-container.right {
-      padding: 10px 150px 10px 10px; } }
+    .project-name-container {
+      transform: translateX(0) !important; }
+      .project-name-container.left {
+        align-self: flex-start;
+        padding: 10px 10px 10px 150px; }
+      .project-name-container.right {
+        padding: 10px 150px 10px 10px; } }
 
 .project-name {
   font-size: 24px;
