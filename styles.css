@@ -102,12 +102,23 @@ body {
   width: 64px;
   height: 64px; }
 
-.skills-section {
+.skills-section, .projects-section {
   display: flex;
   flex-direction: column;
   align-items: flex-start; }
 
-.skills-heading-container {
+@media screen and (min-width: 650px) {
+  .skills-list {
+    width: 100%;
+    display: flex;
+    justify-content: space-between; } }
+
+@media screen and (min-width: 1500px) {
+  .skills-list {
+    width: 1500px;
+    align-self: center; } }
+
+.section-heading-container {
   display: inline-flex;
   align-self: center;
   justify-content: center;
@@ -116,26 +127,65 @@ body {
   padding: 15px;
   margin: 60px 0 40px;
   background-color: #313A40; }
+  @media screen and (min-width: 650px) {
+    .section-heading-container {
+      height: 150px;
+      padding: 0 50px;
+      margin: 80px 0 60px; } }
 
-.skills-heading {
+.section-heading {
   font-size: 24px;
   color: white;
   text-transform: uppercase;
   font-variant: small-caps;
   font-weight: bold; }
+  @media screen and (min-width: 650px) {
+    .section-heading {
+      font-size: 36px; } }
 
 .skill-list-heading-container {
   display: inline-block;
-  padding: 10px;
+  padding: 10px 10px 10px 40px;
   background-color: #313A40; }
+  @media screen and (min-width: 650px) {
+    .skill-list-heading-container.first {
+      align-self: flex-start;
+      min-width: 120px;
+      width: 20vw;
+      max-width: 200px;
+      padding: 15px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center; } }
+  @media screen and (min-width: 650px) {
+    .skill-list-heading-container.second {
+      align-self: center;
+      min-width: 120px;
+      width: 20vw;
+      max-width: 200px;
+      padding: 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center; } }
+  @media screen and (min-width: 650px) {
+    .skill-list-heading-container.third {
+      align-self: flex-end;
+      min-width: 120px;
+      width: 20vw;
+      max-width: 200px;
+      padding: 15px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center; } }
 
 .skill-list-heading {
-  margin-left: 40px;
   font-size: 24px;
   color: white; }
 
-.skill-list-item-list {
-  margin: 25px 0 40px; }
+@media screen and (min-width: 650px) {
+  .skill-list-item {
+    display: flex;
+    flex-direction: column; } }
 
 .skill-list-item-heading {
   font-size: 24px;
@@ -143,8 +193,85 @@ body {
   margin: 25px 60px 10px;
   text-transform: uppercase;
   font-variant: small-caps; }
+  @media screen and (min-width: 650px) {
+    .skill-list-item-heading {
+      margin: 25px 20px 10px 30px; } }
+
+.skill-list-item-list {
+  margin: 25px 0 40px; }
 
 .skill-list-item-text {
   font-size: 16px;
   margin: 0 60px;
   line-height: 1.4; }
+  @media screen and (min-width: 650px) {
+    .skill-list-item-text {
+      margin: 0 20px 0 30px; } }
+
+.project {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+
+.project-name-container {
+  align-self: flex-end;
+  display: inline-block;
+  padding: 10px 60px 10px 10px;
+  background-color: #313A40; }
+
+.project-name {
+  font-size: 24px;
+  color: white; }
+
+.project-photo {
+  width: 100vw;
+  max-width: 500px;
+  margin: 30px 0; }
+
+.project-overview {
+  align-self: flex-start;
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0 30px 15px;
+  text-transform: uppercase;
+  font-variant: small-caps; }
+
+.project-overview-text {
+  align-self: flex-start;
+  font-size: 16px;
+  padding: 0 10% 0 30px;
+  line-height: 1.4;
+  margin-bottom: 10px; }
+
+.project-links-nav {
+  position: relative;
+  margin: 15px 0 60px; }
+
+.project-link {
+  position: relative;
+  z-index: 1;
+  font-size: 24px;
+  text-transform: uppercase;
+  font-variant: small-caps;
+  color: black; }
+
+.project-link-container {
+  margin: 15px 0; }
+
+.project-nav-arrow-top, .project-nav-arrow-bottom {
+  position: absolute;
+  background-image: url("images/arrow.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 100px;
+  width: 30px;
+  transform-origin: center center;
+  left: 15px; }
+
+.project-nav-arrow-top {
+  transform: rotate(90deg) scaleX(1.4);
+  top: -30px; }
+
+.project-nav-arrow-bottom {
+  transform: rotate(270deg) scaleX(1.4);
+  bottom: -35px; }
