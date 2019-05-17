@@ -7,17 +7,21 @@ body {
 
 main {
   width: 100vw;
+  max-width: 100%;
   overflow: hidden; }
 
 .welcome-section {
   position: relative; }
 
 .welcome-header {
-  height: 100vh;
+  height: calc(100vh - 57px);
   min-height: 500px;
   display: flex;
   flex-direction: column;
   justify-content: space-between; }
+  @media screen and (min-width: 1000px) {
+    .welcome-header {
+      height: 100vh; } }
 
 .welcome-heading {
   margin: 20px 100px 0 10px;
@@ -156,7 +160,7 @@ main {
   padding: 10px 10px 10px 100px;
   background-color: #313A40;
   transform: translateX(-60px);
-  transition: transform 0.2s; }
+  transition: transform 0.5s; }
   @media screen and (min-width: 650px) {
     .skill-list-heading-container {
       min-width: 140px;
@@ -237,7 +241,7 @@ main {
   padding: 10px 80px 10px 10px;
   background-color: #313A40;
   transform: translateX(60px);
-  transition: transform 0.2s; }
+  transition: transform 0.5s; }
   @media screen and (min-width: 650px) {
     .project-name-container {
       transform: translateX(0) !important; }
