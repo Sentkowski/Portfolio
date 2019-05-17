@@ -1,32 +1,46 @@
 window.addEventListener("load", function() {
+    const navManager = navHandler();
     createDesktopSkillsObserver();
     createDesktopProjectsObserver();
     createMobileSkillsObserver();
     createMobileProjectsObserver();
-
-    let menuButtonShown = false;
-    window.addEventListener('scroll', scrollHandler());
+    document.querySelector(".welcome-nav-arrow").addEventListener('click', navManager);
+    window.addEventListener('scroll', navManager);
 }, false);
 
-function scrollHandler() {
-    let menuButtonShown = false;
-    return function() {
-        if (window.scrollY !== 0 && !menuButtonShown) {
-            menuButtonShown = true;
-            document.querySelector(".welcome-nav-arrow-container").style.height = "60px"; 
-            document.querySelectorAll(".welcome-nav-item").forEach(item => item.style.opacity = 0);
-            setTimeout(function() {
-                document.querySelector(".welcome-nav-arrow-container").style.borderColor = "#000000FF";
-            }, 300);
-        } else if (window.scrollY === 0 && menuButtonShown) {
+function navHandler() {
+    let menuButtonShown = true;
+    return function(evt) {
+        if (window.scrollY !== 0 && menuButtonShown) {
             menuButtonShown = false;
-            document.querySelector(".welcome-nav-arrow-container").style.borderColor = "#00000000";
-            setTimeout(function() {
-                document.querySelector(".welcome-nav-arrow-container").style.height = "190px";
-                document.querySelectorAll(".welcome-nav-item").forEach(item => item.style.opacity = 1);
-            }, 300);
+            hideNav();
+        } else if (!menuButtonShown && (evt.type === 'click' || window.scrollY === 0)) {
+            menuButtonShown = true;
+            showNav();
         }
     }
+}
+
+function showNav() {
+    const container = document.querySelector(".welcome-nav-arrow-container");
+    const links = document.querySelectorAll(".welcome-nav-item");
+    container.style.borderColor = "#00000000";
+    links.forEach(link => link.display = "block");
+    setTimeout(function() {
+        container.style.height = "190px";
+        links.forEach(link => link.style.opacity = 1);
+    }, 150);
+}
+
+function hideNav() {
+    const container = document.querySelector(".welcome-nav-arrow-container");
+    const links = document.querySelectorAll(".welcome-nav-item");
+    container.style.height = "60px";
+    links.forEach(link => link.style.opacity = 0);
+    setTimeout(function() {
+        container.style.borderColor = "#000000FF";
+        links.forEach(link => link.display = "none");
+    }, 300);
 }
 
 function createDesktopSkillsObserver() {

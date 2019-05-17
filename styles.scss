@@ -19,15 +19,11 @@ main {
 }
 
 .welcome-header {
-    height: calc(100vh - 57px);
+    height: 100vh;
     min-height: 500px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
-    @media screen and (min-width: 1000px) {
-        height: 100vh;
-    }
 }
 
 .welcome-heading {
@@ -56,9 +52,11 @@ main {
 }
 
 .welcome-nav {
-    position: relative;
+    position: fixed;
+    z-index: 2;
     width: calc(100% - 35px);
     text-align: right;
+    bottom: 25px;
 }
 
 .welcome-nav-item {
@@ -66,7 +64,7 @@ main {
     font-size: calc(22px + 6 * ((100vw - 320px) / 880));
     text-transform: uppercase;
     font-variant: small-caps;
-    transition: opacity 0.3s;
+    transition: opacity 0.15s;
 }
 
 .welcome-nav-arrow-container {
@@ -74,7 +72,7 @@ main {
     z-index: 2;
     padding: 5px;
     padding-right: 10px;
-    bottom: 8vh;
+    bottom: 25px;
     right: 0;
     height: 190px;
     width: 34px;
@@ -84,12 +82,6 @@ main {
     transform: translateX(0px);
     transform-origin: center bottom;
     background-color: transparent;
-    will-change: height;
-    will-change: border-color;
-
-    @media screen and (min-width: 1000px) {
-        bottom: 25px;
-    }
 }
 
 .welcome-nav-arrow {
@@ -102,6 +94,7 @@ main {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center bottom;
+    cursor: pointer;
 }
 
 @keyframes expand {
@@ -135,10 +128,11 @@ main {
 
 .welcome-external-nav-list {
     height: 150px;
+    margin: 0 0 50px 10px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .welcome-external-nav-link {
