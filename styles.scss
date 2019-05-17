@@ -66,16 +66,42 @@ main {
     font-size: calc(22px + 6 * ((100vw - 320px) / 880));
     text-transform: uppercase;
     font-variant: small-caps;
+    transition: opacity 0.3s;
+}
+
+.welcome-nav-arrow-container {
+    position: fixed;
+    z-index: 2;
+    padding: 5px;
+    padding-right: 10px;
+    bottom: 8vh;
+    right: 0;
+    height: 190px;
+    width: 34px;
+    border: 2px solid #00000000;
+    border-right: none;
+    transition: all 0.3s;
+    transform: translateX(0px);
+    transform-origin: center bottom;
+    background-color: transparent;
+    will-change: height;
+    will-change: border-color;
+
+    @media screen and (min-width: 1000px) {
+        bottom: 25px;
+    }
 }
 
 .welcome-nav-arrow {
-    position: absolute;
-    top: 10px;
-    right: -30px;
-    height: 90%;
-    transform-origin: center bottom;
-    transform: scaleY(0.5);
-    animation: expand 0.5s forwards;
+    height: 100%;
+    width: 100%;
+    animation: expand 0.5s;
+    background-color: transparent;
+    border: none;
+    background-image: url("images/arrow.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center bottom;
 }
 
 @keyframes expand {

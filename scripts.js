@@ -3,7 +3,31 @@ window.addEventListener("load", function() {
     createDesktopProjectsObserver();
     createMobileSkillsObserver();
     createMobileProjectsObserver();
+
+    let menuButtonShown = false;
+    window.addEventListener('scroll', scrollHandler());
 }, false);
+
+function scrollHandler() {
+    let menuButtonShown = false;
+    return function() {
+        if (window.scrollY !== 0 && !menuButtonShown) {
+            menuButtonShown = true;
+            document.querySelector(".welcome-nav-arrow-container").style.height = "60px"; 
+            document.querySelectorAll(".welcome-nav-item").forEach(item => item.style.opacity = 0);
+            setTimeout(function() {
+                document.querySelector(".welcome-nav-arrow-container").style.borderColor = "#000000FF";
+            }, 300);
+        } else if (window.scrollY === 0 && menuButtonShown) {
+            menuButtonShown = false;
+            document.querySelector(".welcome-nav-arrow-container").style.borderColor = "#00000000";
+            setTimeout(function() {
+                document.querySelector(".welcome-nav-arrow-container").style.height = "190px";
+                document.querySelectorAll(".welcome-nav-item").forEach(item => item.style.opacity = 1);
+            }, 300);
+        }
+    }
+}
 
 function createDesktopSkillsObserver() {
     const options = {
