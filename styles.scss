@@ -59,8 +59,15 @@ main {
     bottom: 25px;
 }
 
+.welcome-nav-list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
 .welcome-nav-item {
-    margin: 25px 0;
+    display: inline;
+    margin: 15px 0;
     font-size: calc(22px + 6 * ((100vw - 320px) / 880));
     text-transform: uppercase;
     font-variant: small-caps;
@@ -72,7 +79,7 @@ main {
     z-index: 2;
     padding: 5px;
     padding-right: 10px;
-    bottom: 25px;
+    bottom: 37px;
     right: 0;
     height: 190px;
     width: 34px;
@@ -87,6 +94,7 @@ main {
 .welcome-nav-arrow {
     height: 100%;
     width: 100%;
+    padding: 10px;
     animation: expand 0.5s;
     background-color: transparent;
     border: none;
@@ -140,7 +148,7 @@ main {
     height: 64px;
 }
 
-.skills-section, .projects-section {
+.skills-section, .projects-section, .contact-section {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -449,4 +457,53 @@ main {
         background-color: #F2E6D8;
         transition: transform 0.3s;
     }
+}
+
+.contact-list {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom: 50px;
+
+    @media screen and (min-width: 700px) {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+}
+
+.contact-list-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @media screen and (min-width: 700px) {
+        width: 2300px;
+    }
+}
+
+.contact-item-heading-container {
+    min-width: 140px;
+    width: 20vw;
+    max-width: 200px;
+    padding: 15px;
+    background-color: #313A40;
+}
+
+.contact-item-heading {
+    text-align: center;
+    font-size: 24px;
+    color: white;
+}
+
+.contact-image {
+    height: 120px;
+    margin: 15px 0;
+}
+
+.contact-link {
+    color: black;
+    font-size: 14px;
+    margin-bottom: 50px;
 }

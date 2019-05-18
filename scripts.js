@@ -25,7 +25,7 @@ function showNav() {
     const container = document.querySelector(".welcome-nav-arrow-container");
     const links = document.querySelectorAll(".welcome-nav-item");
     container.style.borderColor = "#00000000";
-    links.forEach(link => link.display = "block");
+    links.forEach(link => link.style.display = "inline");
     setTimeout(function() {
         container.style.height = "190px";
         links.forEach(link => link.style.opacity = 1);
@@ -39,7 +39,7 @@ function hideNav() {
     links.forEach(link => link.style.opacity = 0);
     setTimeout(function() {
         container.style.borderColor = "#000000FF";
-        links.forEach(link => link.display = "none");
+        links.forEach(link => link.style.display = "none");
     }, 300);
 }
 
