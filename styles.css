@@ -44,7 +44,7 @@ main {
 .welcome-nav {
   position: fixed;
   z-index: 2;
-  width: calc(100% - 35px);
+  right: 35px;
   text-align: right;
   bottom: 25px; }
 
@@ -60,6 +60,10 @@ main {
   text-transform: uppercase;
   font-variant: small-caps;
   transition: opacity 0.15s; }
+
+.welcome-nav-link {
+  text-decoration: none;
+  color: black; }
 
 .welcome-nav-arrow-container {
   position: fixed;
@@ -398,13 +402,16 @@ main {
       top: 0px;
       left: 0; } }
 
-.about-image-list-second {
-  display: none; }
-  @media screen and (min-width: 1000px) {
-    .about-image-list-second {
-      right: 0px;
-      transform-origin: top right;
-      animation: slideInRight 0.5s forwards; } }
+@media screen and (min-width: 1000px) {
+  .about-image-list-second {
+    display: none;
+    right: 0px;
+    transform-origin: top right;
+    animation: slideInRight 0.5s forwards; } }
+
+@media screen and (max-width: 999px) {
+  .about-image-list-second {
+    display: none !important; } }
 
 .image-about-one, .image-about-two {
   height: 125px;

@@ -1,5 +1,6 @@
 window.addEventListener("load", function() {
     const navHandler = navManager();
+    activateNavLinks();
 
     createDesktopSkillsObserver();
     createDesktopProjectsObserver();
@@ -47,6 +48,17 @@ function hideNav() {
         container.style.borderColor = "#000000FF";
         links.forEach(link => link.style.display = "none");
     }, 300);
+}
+
+function activateNavLinks() {
+    const links = document.querySelectorAll(".welcome-nav-link");
+    links.forEach(link => link.addEventListener('click', handleInternalLink));
+}
+
+function handleInternalLink(evt) {
+    const destination = evt.target.getAttribute("href");
+    document.querySelector(destination).scrollIntoView({behavior: "smooth"})
+    evt.preventDefault();
 }
 
 function createDesktopSkillsObserver() {
