@@ -218,7 +218,8 @@ main {
 @media screen and (min-width: 650px) {
   .skill-list-item {
     display: flex;
-    flex-direction: column; } }
+    flex-direction: column;
+    width: 30%; } }
 
 .skill-list-item-heading {
   font-size: 24px;
