@@ -1,14 +1,20 @@
 window.addEventListener("load", function() {
-    const navManager = navHandler();
+    const navHandler = navManager();
+
     createDesktopSkillsObserver();
     createDesktopProjectsObserver();
-    createMobileSkillsObserver();
-    createMobileProjectsObserver();
-    document.querySelector(".welcome-nav-arrow").addEventListener('click', navManager);
-    window.addEventListener('scroll', navManager);
+
+    if (!window.matchMedia("(min-width: 650px)").matches) {
+        createMobileSkillsObserver();
+        createMobileProjectsObserver()
+    }
+
+    createAboutImagesObserver();
+    document.querySelector(".welcome-nav-arrow").addEventListener('click', navHandler);
+    window.addEventListener('scroll', navHandler);
 }, false);
 
-function navHandler() {
+function navManager() {
     let menuButtonShown = true;
     return function(evt) {
         if (window.scrollY !== 0 && menuButtonShown) {
@@ -135,3 +141,25 @@ function handleMobileProjectsIntersect(entries, observer) {
     });
 }
 
+function createAboutImagesObserver() {
+    const options = {
+        root: null,
+        rootMargin: "0px",
+        threshold: [0, 0.1, 0.2, 0.3, 0.4]
+    };
+
+    const observer = new IntersectionObserver(handleAboutIntersect, options);
+    observer.observe(document.querySelector(".about-section"));
+}
+
+function handleAboutIntersect(entries, observer) {
+    entries.forEach(entry => {
+        if (entry.intersectionRatio >= 0.2) {
+            document.querySelector(".about-image-list").style.display = "block";
+            if (window.matchMedia("(min-width: 1000px)").matches) {
+                document.querySelector(".about-image-list-second").style.display = "block";
+            }
+            observer.unobserve(entry.target);
+        }
+    });
+}
