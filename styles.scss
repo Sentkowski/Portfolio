@@ -464,35 +464,6 @@ main {
     position: relative;
 }
 
-.about-image-list, .about-image-list-second {
-    display: none;
-    position: relative;
-    top: -100px;
-    animation: slideIn 0.5s forwards;
-    transform-origin: top left;
-    margin-bottom: -100px;
-    z-index: 1;
-
-    @media screen and (min-width: 650px) {
-        position: absolute;
-        top: 0px;
-        left: 0;
-    }
-}
-
-.about-image-list-second {
-    @media screen and (min-width: 1000px) {
-        display: none;
-        right: 0px;
-        transform-origin: top right;
-        animation: slideInRight 0.5s forwards;
-    }
-    @media screen and (max-width: 999px) {
-        display: none !important;
-    }
-
-}
-
 .image-about-one, .image-about-two {
     height: 125px;
     width: 250px;

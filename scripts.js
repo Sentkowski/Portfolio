@@ -12,13 +12,11 @@ window.addEventListener("load", function() {
         createMobileProjectsObserver()
     }
 
-    createAboutImagesObserver();
     document.querySelector(".welcome-nav-arrow").addEventListener('click', navHandler);
     window.addEventListener('scroll', navHandler);
 }, false);
 
 function adjustViewport() {
-    console.log(window.innerHeight)
     if (window.innerHeight < 750) {
         console.log(window.innerHeight)
         document.querySelector(".welcome-header").style.height = `${window.innerHeight}px`;
@@ -158,29 +156,6 @@ function handleMobileProjectsIntersect(entries, observer) {
         if (entry.intersectionRatio > 0.15) {
             const heading = entry.target.querySelector(".project-name-container");
             heading.style.transform = `translateX(0px)`
-            observer.unobserve(entry.target);
-        }
-    });
-}
-
-function createAboutImagesObserver() {
-    const options = {
-        root: null,
-        rootMargin: "0px",
-        threshold: [0, 0.1, 0.2, 0.3, 0.4]
-    };
-
-    const observer = new IntersectionObserver(handleAboutIntersect, options);
-    observer.observe(document.querySelector(".about-section"));
-}
-
-function handleAboutIntersect(entries, observer) {
-    entries.forEach(entry => {
-        if (entry.intersectionRatio >= 0.2) {
-            document.querySelector(".about-image-list").style.display = "block";
-            if (window.matchMedia("(min-width: 1000px)").matches) {
-                document.querySelector(".about-image-list-second").style.display = "block";
-            }
             observer.unobserve(entry.target);
         }
     });
