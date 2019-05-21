@@ -12,6 +12,8 @@ window.addEventListener("load", function() {
         createMobileProjectsObserver()
     }
 
+    intersectionObserverFallback();
+    
     document.querySelector(".welcome-nav-arrow").addEventListener('click', navHandler);
     window.addEventListener('scroll', navHandler);
 }, false);
@@ -159,4 +161,13 @@ function handleMobileProjectsIntersect(entries, observer) {
             observer.unobserve(entry.target);
         }
     });
+}
+
+if (!('IntersectionObserver' in window) ||
+    !('IntersectionObserverEntry' in window) ||
+    !('intersectionRatio' in window.IntersectionObserverEntry.prototype)) {
+    document.querySelector(".projects-covering-rect-one").style.display = "none";
+    document.querySelector(".projects-covering-rect-two").style.display = "none";
+    document.querySelector(".skills-covering-rect-one").style.display = "none";
+    document.querySelector(".skills-covering-rect-two").style.display = "none";
 }

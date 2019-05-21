@@ -389,31 +389,6 @@ main {
 .about-section {
   position: relative; }
 
-.about-image-list, .about-image-list-second {
-  display: none;
-  position: relative;
-  top: -100px;
-  animation: slideIn 0.5s forwards;
-  transform-origin: top left;
-  margin-bottom: -100px;
-  z-index: 1; }
-  @media screen and (min-width: 650px) {
-    .about-image-list, .about-image-list-second {
-      position: absolute;
-      top: 0px;
-      left: 0; } }
-
-@media screen and (min-width: 1000px) {
-  .about-image-list-second {
-    display: none;
-    right: 0px;
-    transform-origin: top right;
-    animation: slideInRight 0.5s forwards; } }
-
-@media screen and (max-width: 999px) {
-  .about-image-list-second {
-    display: none !important; } }
-
 .image-about-one, .image-about-two {
   height: 125px;
   width: 250px;
@@ -511,10 +486,10 @@ main {
   animation: jump 1.2s ease-in infinite; }
 
 .dot:nth-of-type(2) {
-  animation-delay: 0.1s; }
+  animation: jump 1.2s 0.1s ease-in infinite; }
 
 .dot:nth-of-type(3) {
-  animation-delay: 0.2s; }
+  animation: jump 1.2s 0.2s ease-in infinite; }
 
 .dots-note {
   align-self: center;
