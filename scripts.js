@@ -1,4 +1,6 @@
 window.addEventListener("load", function() {
+    adjustViewport();
+
     const navHandler = navManager();
     activateNavLinks();
 
@@ -14,6 +16,14 @@ window.addEventListener("load", function() {
     document.querySelector(".welcome-nav-arrow").addEventListener('click', navHandler);
     window.addEventListener('scroll', navHandler);
 }, false);
+
+function adjustViewport() {
+    console.log(window.innerHeight)
+    if (window.innerHeight < 750) {
+        console.log(window.innerHeight)
+        document.querySelector(".welcome-header").style.height = `${window.innerHeight}px`;
+    }
+}
 
 function navManager() {
     let menuButtonShown = true;
