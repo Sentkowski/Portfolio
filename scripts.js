@@ -20,7 +20,6 @@ window.addEventListener("load", function() {
 
 function adjustViewport() {
     if (window.innerHeight < 750) {
-        console.log(window.innerHeight)
         document.querySelector(".welcome-header").style.height = `${window.innerHeight}px`;
     }
 }
@@ -163,11 +162,14 @@ function handleMobileProjectsIntersect(entries, observer) {
     });
 }
 
-if (!('IntersectionObserver' in window) ||
+
+function intersectionObserverFallback() {
+    if (!('IntersectionObserver' in window) ||
     !('IntersectionObserverEntry' in window) ||
     !('intersectionRatio' in window.IntersectionObserverEntry.prototype)) {
-    document.querySelector(".projects-covering-rect-one").style.display = "none";
-    document.querySelector(".projects-covering-rect-two").style.display = "none";
-    document.querySelector(".skills-covering-rect-one").style.display = "none";
-    document.querySelector(".skills-covering-rect-two").style.display = "none";
+        document.querySelector(".projects-covering-rect-one").style.display = "none";
+        document.querySelector(".projects-covering-rect-two").style.display = "none";
+        document.querySelector(".skills-covering-rect-one").style.display = "none";
+        document.querySelector(".skills-covering-rect-two").style.display = "none";
+    }
 }
