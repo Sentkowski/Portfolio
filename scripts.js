@@ -1,5 +1,6 @@
+adjustViewport();
+
 window.addEventListener("load", function() {
-    adjustViewport();
 
     const navHandler = navManager();
     activateNavLinks();
