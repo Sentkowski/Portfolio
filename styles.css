@@ -278,13 +278,39 @@ main {
   color: white; }
 
 .project-photo {
+  position: relative;
   width: 100vw;
   max-width: 500px;
-  margin: 30px 0; }
+  margin: 30px 0;
+  cursor: pointer; }
   @media screen and (min-width: 650px) {
     .project-photo {
       width: 45vw;
       max-width: 100%; } }
+
+.project-photo-container {
+  position: relative; }
+
+.project-photo-shadow {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: calc(100% - 60px);
+  background-color: rgba(0, 0, 0, 0.5);
+  margin: 30px 0;
+  top: 0;
+  opacity: 0;
+  transition: opacity 0.2s;
+  font-size: 48px;
+  font-variant: small-caps;
+  color: #F2E6D8; }
+  .project-photo-shadow div {
+    border: 2px solid #F2E6D8;
+    padding: 0 10px 10px; }
+  .project-photo-shadow:hover {
+    opacity: 1; }
 
 .project-overview {
   align-self: flex-start;
@@ -345,6 +371,9 @@ main {
       background-color: #F2E6D8;
       transition: transform 0.3s; } }
 
+.contact-section {
+  position: relative; }
+
 .contact-list {
   margin-top: 20px;
   width: 100%;
@@ -389,46 +418,6 @@ main {
 .about-section {
   position: relative; }
 
-.image-about-one, .image-about-two {
-  height: 125px;
-  width: 250px;
-  background-image: url("images/me.png");
-  background-size: 100% 200%;
-  background-repeat: no-repeat;
-  transition: transform; }
-  @media screen and (min-width: 650px) {
-    .image-about-one, .image-about-two {
-      height: 150px;
-      width: 300px; } }
-
-.image-about-one {
-  transform: rotateX(-180deg);
-  background-position: top;
-  transform-origin: bottom left;
-  animation: unfold-small 0.5s;
-  transform: rotateX(0deg); }
-
-.image-about-two {
-  position: relative;
-  top: -1px;
-  transform: rotateX(45deg);
-  background-position: bottom;
-  transform-origin: top left;
-  transform: rotateX(180deg);
-  animation: unfold 0.5s 0.5s, moveFinger 1s 1s infinite alternate-reverse; }
-
-@keyframes unfold {
-  from {
-    transform: rotateX(180deg); }
-  to {
-    transform: rotateX(0deg); } }
-
-@keyframes unfold-small {
-  from {
-    transform: rotateX(80deg); }
-  to {
-    transform: rotateX(0deg); } }
-
 @keyframes slideIn {
   from {
     transform: translateX(-40px) rotate(90deg); }
@@ -472,6 +461,123 @@ main {
   align-items: center;
   width: 300px;
   margin: auto; }
+
+#my-pic {
+  position: absolute;
+  z-index: -1;
+  bottom: 0;
+  right: 0;
+  opacity: 0;
+  height: 100vh;
+  width: 100vw; }
+
+#stars-right {
+  transform: rotate(180deg); }
+
+.stars-container-left {
+  position: absolute;
+  left: 0;
+  transform: translateX(-100%);
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse; }
+
+.stars-container-right {
+  position: absolute;
+  right: 0;
+  transform: translateX(100%);
+  display: flex;
+  align-items: center; }
+
+#me-pointing-about-right {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: -1;
+  width: 100vw;
+  opacity: 0.15;
+  max-width: 600px; }
+  @media screen and (min-width: 70px) {
+    #me-pointing-about-right {
+      opacity: 0.5; } }
+  @media screen and (min-width: 1300px) {
+    #me-pointing-about-right {
+      width: 500px;
+      opacity: 1; } }
+
+#me-pointing-about-left {
+  display: none; }
+  @media screen and (min-width: 1300px) {
+    #me-pointing-about-left {
+      display: block;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      z-index: -1;
+      transform: scaleX(-1);
+      width: 500px; } }
+
+/*!
+ * animate.css -https://daneden.github.io/animate.css/
+ * Version - 3.7.1
+ * Licensed under the MIT license - http://opensource.org/licenses/MIT
+ *
+ * Copyright (c) 2019 Daniel Eden
+ */
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+.fadeIn {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn; }
+
+@-webkit-keyframes fadeInUp {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0); }
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0); } }
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0); }
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0); } }
+
+.fadeInUp {
+  -webkit-animation-name: fadeInUp;
+  animation-name: fadeInUp; }
+
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both; }
+
+@media (print), (prefers-reduced-motion: reduce) {
+  .animated {
+    -webkit-animation-duration: 1ms !important;
+    animation-duration: 1ms !important;
+    -webkit-transition-duration: 1ms !important;
+    transition-duration: 1ms !important;
+    -webkit-animation-iteration-count: 1 !important;
+    animation-iteration-count: 1 !important; } }
 
 .dots {
   margin-top: -30px;
