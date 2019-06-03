@@ -7,11 +7,17 @@ window.addEventListener("load", function() {
     const navHandler = navManager();
     activateNavLinks();
 
-    new Vivus('my-pic', {duration: 200, type: 'sync', animTimingFunction: Vivus.EASE, start: 'autostart'});
-    document.querySelector("#my-pic").style.opacity = "0.75";
+    new Vivus('my-pic', {duration: 200, type: 'oneByOne', animTimingFunction: Vivus.EASE, start: 'autostart'}, () => {
+        document.querySelector("#my-pic-paths").style.fill = "#000000";
+    });
+    document.querySelector("#my-pic").classList.add("show-my-pic");
 
-    new Vivus('me-pointing-about-right', {duration: 200, type: 'sync', animTimingFunction: Vivus.EASE});
-    new Vivus('me-pointing-about-left', {duration: 200, type: 'sync', animTimingFunction: Vivus.EASE});
+    new Vivus('me-pointing-about-right', {duration: 150, type: 'sync'}, () => {
+        document.querySelector("#me-pointing-about-right g").style.fill = "#000000";
+    });
+    new Vivus('me-pointing-about-left', {duration: 150, type: 'sync'}, () => {
+        document.querySelector("#me-pointing-about-left g").style.fill = "#000000";
+    });
     new Vivus(`stars-left`, {duration: 50, type: 'oneByOne', animTimingFunction: Vivus.EASE}, () => keepDrawingStars('left'));
     new Vivus(`stars-right`, {duration: 50, type: 'oneByOne', animTimingFunction: Vivus.EASE}, () => keepDrawingStars('right'));
     

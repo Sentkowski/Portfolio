@@ -447,7 +447,8 @@ main {
   line-height: 1.2;
   margin: 10px auto;
   width: 80vw;
-  max-width: 400px; }
+  max-width: 400px;
+  text-shadow: -1px -1px 0 #F2E6D8, 1px -1px 0 #F2E6D8, -1px 1px 0 #F2E6D8, 1px 1px 0 #F2E6D8; }
 
 .about-link {
   color: black; }
@@ -467,7 +468,6 @@ main {
   z-index: -1;
   bottom: 0;
   right: 0;
-  opacity: 0;
   height: 100vh;
   width: 100vw; }
 
@@ -495,27 +495,29 @@ main {
   bottom: 0;
   z-index: -1;
   width: 100vw;
-  opacity: 0.15;
-  max-width: 600px; }
-  @media screen and (min-width: 70px) {
+  opacity: 0.3;
+  width: 750px;
+  transform: translateX(-40%) scaleX(-1); }
+  @media screen and (min-width: 700px) {
     #me-pointing-about-right {
-      opacity: 0.5; } }
-  @media screen and (min-width: 1300px) {
+      opacity: 0.4;
+      transform: translateX(-25%) scaleX(-1); } }
+  @media screen and (min-width: 1350px) {
     #me-pointing-about-right {
-      width: 500px;
-      opacity: 1; } }
+      opacity: 0.75; } }
 
 #me-pointing-about-left {
   display: none; }
-  @media screen and (min-width: 1300px) {
+  @media screen and (min-width: 1350px) {
     #me-pointing-about-left {
       display: block;
       position: absolute;
       right: 0;
       bottom: 0;
       z-index: -1;
-      transform: scaleX(-1);
-      width: 500px; } }
+      width: 750px;
+      transform: translateX(25%);
+      opacity: 0.75; } }
 
 /*!
  * animate.css -https://daneden.github.io/animate.css/
@@ -615,3 +617,19 @@ main {
     transform: translateY(0); }
   100% {
     transform: translateY(0); } }
+
+#my-pic-paths, #me-pointing-about-left g, #me-pointing-about-right g {
+  fill: rgba(0, 0, 0, 0);
+  transition: fill 1s; }
+
+.hide-my-pic {
+  opacity: 0; }
+
+.show-my-pic {
+  opacity: 0.25; }
+  @media screen and (min-width: 700px) {
+    .show-my-pic {
+      opacity: 0.5; } }
+  @media screen and (min-width: 1300px) {
+    .show-my-pic {
+      opacity: 1; } }
