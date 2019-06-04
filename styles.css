@@ -51,15 +51,17 @@ main {
 .welcome-nav-list {
   display: flex;
   flex-direction: column;
-  align-items: flex-end; }
+  align-items: flex-end;
+  opacity: 1;
+  transition: opacity 0.15s, background-color 0.15s, border 0.15s;
+  padding: 10px; }
 
 .welcome-nav-item {
   display: inline;
   margin: 15px 0;
   font-size: calc(22px + 6 * ((100vw - 320px) / 880));
   text-transform: uppercase;
-  font-variant: small-caps;
-  transition: opacity 0.15s; }
+  font-variant: small-caps; }
 
 .welcome-nav-link {
   text-decoration: none;

@@ -46,23 +46,32 @@ function navManager() {
 
 function showNav() {
     const container = document.querySelector(".welcome-nav-arrow-container");
-    const links = document.querySelectorAll(".welcome-nav-item");
+    const linksList = document.querySelector(".welcome-nav-list");
     container.style.borderColor = "#00000000";
-    links.forEach(link => link.style.display = "inline");
     setTimeout(function() {
+        linksList.style.display = "flex";
+        if (window.scrollY === 0) {
+            linksList.style.backgroundColor = "rgba(242, 230, 216, 0)";
+            linksList.style.border = "none"
+        } else {
+            linksList.style.backgroundColor = "rgba(242, 230, 216, 0.9)";
+            linksList.style.border = "2px solid black"
+        }
         container.style.height = "190px";
-        links.forEach(link => link.style.opacity = 1);
+        linksList.style.opacity = 1;
     }, 150);
 }
 
 function hideNav() {
     const container = document.querySelector(".welcome-nav-arrow-container");
-    const links = document.querySelectorAll(".welcome-nav-item");
+    const linksList = document.querySelector(".welcome-nav-list");
     container.style.height = "60px";
-    links.forEach(link => link.style.opacity = 0);
+    linksList.style.opacity = 0;
+    linksList.style.backgroundColor = "rgba(242, 230, 216, 0)";
+    linksList.style.border = "none"
     setTimeout(function() {
         container.style.borderColor = "#000000FF";
-        links.forEach(link => link.style.display = "none");
+        linksList.style.display = "none";
     }, 300);
 }
 
